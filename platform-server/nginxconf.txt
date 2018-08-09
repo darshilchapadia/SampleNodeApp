@@ -1,0 +1,40 @@
+upstream blogclient {
+  	server 127.0.0.1:3000;
+    }
+
+    upstream blogserver {
+  	server 127.0.0.1:3001;
+    }
+
+    server {
+    	listen       80;
+    	server_name  dev.blogger.com;
+
+    	location / {
+		proxy_pass   http://blogclient/;
+       		proxy_redirect off;
+
+       		proxy_http_version 1.1;
+       		proxy_set_header Upgrade $http_upgrade;
+       		proxy_set_header Connection "upgrade";
+    	}
+
+   }
+
+   server {
+    	listen       80;
+    	server_name  datadev.blogger.com;
+
+	add_header 'Access-Control-Allow-Origin' '*';
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+
+    	location / {
+		proxy_pass   http://blogserver/;
+       		proxy_redirect off;
+
+       		proxy_http_version 1.1;
+       		proxy_set_header Upgrade $http_upgrade;
+       		proxy_set_header Connection "upgrade";
+    	}
+
+   }

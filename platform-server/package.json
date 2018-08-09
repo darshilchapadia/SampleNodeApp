@@ -1,0 +1,20 @@
+{
+  "name": "blog-server",
+  "version": "1.0.0",
+  "description": "Backend",
+  "main": "",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://Sisirdk@bitbucket.org/Sisirdk/blog-server.git"
+  },
+  "author": "Sisir",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/Sisirdk/blog-server#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.10"
+  },
+  "devDependencies": {}
+}
